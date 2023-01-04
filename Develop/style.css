@@ -25,21 +25,9 @@ textarea {
   white-space: pre-wrap;
 }
 
-#timeblock-1, #timeblock-2 ,#timeblock-3 ,#timeblock-4, #timeblock-5, #timeblock-9, #timeblock-10, #timeblock-11, #timeblock-12 {
+.time-block {
   text-align: center;
   border-radius: 15px;
-  /* background-color: #5bcfe9; */
-  display: flex;
-  width: 300px;
-  height: auto;
-  color: #000000;
-  margin: 1px;
-  padding: 10px;
-  width: 80%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
 }
 
 .row {
@@ -75,19 +63,9 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-  display: flex;
-  
-  
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
-}
-
-.input9, .input10, .input11, .input12, .input1, .input2, .input3, .input4,.input5{
-  width: 95%;
-  background-color: white;
-  height: 100px;
-  margin: 10px;
 }
