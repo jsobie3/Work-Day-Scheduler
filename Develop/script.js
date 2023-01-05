@@ -6,7 +6,6 @@ var currentHour = dayjs().format("HH")
 var saveButtons = document.querySelectorAll(".saveBtn")
 
 
-
 function colorTime(){
 
 $('.hourblock').each(function ()  {
