@@ -1,42 +1,42 @@
-// -- DayJS Time -- //
-var currentDate = dayjs().format("dddd, MMM Do YYYY: h:mm a");
-var todayDate = document.getElementById("currentDay");
-var currentHour = dayjs().format("HH")
-
+dayjs().format('LL') 
+var dayDisplay = $("#currentDay");
+var textAreas = $("textarea")
+var currentHour = dayjs().hour();
 var saveButtons = document.querySelectorAll(".saveBtn")
+console.log(saveButtons)
 
-
-function colorTime(){
-
-$('.hourblock').each(function ()  {
-  
-    var currentHour = dayjs().format('h')
-    var hourBlock = parseInt($(this).attr('id').split('-')[1]);
-  
-    if (currentHour === hourBlock) {
-    $(this).addClass('present')
-    }
-    else if(currentHour <= hourBlock) {
-      $(this).addClass ('future')
-    }
-    else if (currentHour >= hourBlock) 
-      {
-      $(this).addClass('past')
-    }
-  })
+function timeUpdate(){
+    dayDisplay.text(dayjs())
 }
 
-colorTime();
+for (let i = 0; i < textAreas.length; i++){
+    if (localStorage.getItem(i) != undefined){
+        textAreas[i].value = localStorage.getItem(i);
+    }
+    if (i + 9 < currentHour){
+        textAreas[i].classList.remove('present');
+        textAreas[i].classList.remove('future');
+        textAreas[i].classList.add('past');
+        
+    } else if (i + 9 === currentHour){
+        textAreas[i].classList.remove('past');
+        textAreas[i].classList.remove('future');
+        textAreas[i].classList.add('present');
+    } else {
+        textAreas[i].classList.remove('present');
+        textAreas[i].classList.remove('past');
+        textAreas[i].classList.add('future');
+    }
+}
 
-// -- Save Button -- //
-$(".saveBtn").on("click", function saveInput(event)
-{
+function testFunction () {
+    console.log("Clicked!")
+}
 
-event.preventDefault();
-let tasks = $(this).siblings(".description").val();
-let time = $(this).parents().attr("id").split("-")[1];
-localStorage.setItem(time, tasks)
-})
-
+for (let i = 0; i < saveButtons.length; i++){
+    saveButtons[i].addEventListener('click', function() {
+        localStorage.setItem(i, textAreas[i].value)
+    })
+}
 
 setInterval(timeUpdate, 1000)

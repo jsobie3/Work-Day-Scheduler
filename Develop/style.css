@@ -1,3 +1,10 @@
+/* Override css colors for greater legibility */
+.bg-lightGreen{
+  background-color: #c5ffc5!important;
+}
+.bg-lightRed{
+  background-color: #ffb5b1!important;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -31,8 +38,7 @@ textarea {
 }
 
 .row {
-  white-space: pre-wrap;
-  height: 80px;
+  height: 65px;
   border-top: 1px solid white;
 }
 
